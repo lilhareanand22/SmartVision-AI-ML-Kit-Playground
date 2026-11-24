@@ -136,7 +136,7 @@ android.ai.smartvisionaimlkitplayground/
 ---
 
 #### Phase 0B: Hilt DI & MVI Base Infrastructure
-**Status**: 🟡 Pending  
+**Status**: 🟢 Completed  
 
 **What Gets Built:**
 1. `SmartVisionApp.kt` — `@HiltAndroidApp` Application class

@@ -1,0 +1,34 @@
+package android.ai.smartvisionaimlkitplayground.core.di
+
+import dagger.Module
+import dagger.Provides
+import dagger.hilt.InstallIn
+import dagger.hilt.components.SingletonComponent
+import kotlinx.coroutines.CoroutineDispatcher
+import kotlinx.coroutines.Dispatchers
+import javax.inject.Singleton
+
+/**
+ * Hilt module that provides standard Coroutine Dispatchers.
+ * This decouples coroutine execution contexts from concrete implementations,
+ * enabling straightforward substitution in unit tests.
+ */
+@Module
+@InstallIn(SingletonComponent::class)
+object DispatcherModule {
+
+    @Provides
+    @Singleton
+    @IoDispatcher
+    fun provideIoDispatcher(): CoroutineDispatcher = Dispatchers.IO
+
+    @Provides
+    @Singleton
+    @DefaultDispatcher
+    fun provideDefaultDispatcher(): CoroutineDispatcher = Dispatchers.Default
+
+    @Provides
+    @Singleton
+    @MainDispatcher
+    fun provideMainDispatcher(): CoroutineDispatcher = Dispatchers.Main
+}
